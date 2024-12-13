@@ -1,0 +1,221 @@
+:root {
+  --lighterwhite: #fafafa;
+  --white: #e4e5f1;
+  --darkerwhite: #d2d3db;
+  --darkerGrey: #1e2124;
+  --darkGrey: #282b30;
+  --lighterGrey: #424549;
+  --primary: var(--darkerGrey);
+  --secondary: var(--darkGrey);
+  --tertiary: var(--lighterGrey);
+  --font-color: var(--white);
+}
+
+body,
+html {
+  font-family: Arial, sans-serif;
+  color: var(--font-color);
+  margin: 0;
+  box-sizing: border-box;
+  animation: fadeIn 1s ease-in-out;
+}
+body {
+  background-color: var(--secondary);
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+header {
+  width: 100%;
+  background-color: var(--primary);
+  padding: 20px;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Why do you need this?*/
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+nav a {
+  color: var(--font-color);
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+nav a:hover {
+  background-color: var(--lighterGrey);
+}
+
+nav img.logo {
+  margin-left: 20px;
+  width: 100px;
+  height: auto;
+  color: var(--font-color);
+}
+
+.light {
+  --primary: var(--lighterwhite);
+  --secondary: var(--white);
+  --tertiary: var(--lighterwhite);
+  --font-color: var(--darkGrey);
+}
+
+.dark {
+  --primary: var(--darkerGrey);
+  --secondary: var(--darkGrey);
+  --tertiary: var(--lighterGrey);
+  --font-color: var(--white);
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--secondary);
+  opacity: 0;
+  animation: fadeInCards 0.8s forwards;
+}
+
+@keyframes fadeInCards {
+  to {
+      opacity: 1;
+  }
+}
+
+.card {
+  background-color: var(--tertiary);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  padding: 16px;
+  text-align: center;
+  transform: translateY(10px);
+  opacity: 0;
+  animation: slideUp 0.5s forwards;
+  animation-delay: calc(var(--animation-index) * 0.1s);
+  transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+@keyframes slideUp {
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+.card h2 {
+  font-size: 1.2em;
+  color: var(--font-color);
+}
+
+.card p {
+  font-size: 1em;
+  color: var(--font-color);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.filter-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px;
+  width: 100%;
+}
+
+select,
+button {
+  flex: 1;
+  min-width: 100px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  transition:
+      background-color 0.3s,
+      transform 0.2s;
+}
+
+button {
+  background-color: var(--primary);
+  color: var(--font-color);
+  border: none;
+}
+
+button:hover {
+  background-color: var(--secondary);
+  transform: scale(1.05);
+}
+
+.mode-toggle {
+  color: var(--font-color);
+}
+
+@media (max-width: 768px) {
+  .filter-container {
+      gap: 5px;
+  }
+
+  select,
+  button {
+      font-size: 12px;
+      padding: 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-container {
+      flex-direction: column;
+      align-items: stretch;
+  }
+
+  select,
+  button {
+      width: 100%;
+  }
+}

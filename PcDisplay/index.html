@@ -1,13 +1,66 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PC Homestore</title>
+    </head>
+    <body class="light">
+        <header>
+            <nav>
+                <ul>
+                    <!--Aesthetic purposes -->
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="https://github.com/Asphated">Github</a></li>
+                </ul>
+                <img src="PCLogo.png" alt="Logo" class="logo" />
+                <div class="filter-container">
+                    <select id="price-filter">
+                        <option value="">Max Price</option>
+                        <option value="500">$500</option>
+                        <option value="1000">$1000</option>
+                        <option value="1500">$1500</option>
+                        <option value="2000">$2000</option>
+                    </select>
+
+                    <select id="cpu-filter">
+                        <option value="">ANY CPU</option>
+                        <option value="Intel i3">Intel i3</option>
+                        <option value="AMD Ryzen 3">AMD Ryzen 3</option>
+                        <option value="Intel i5">Intel i5</option>
+                        <!-- Add more CPU options as needed -->
+                    </select>
+
+                    <select id="ram-filter">
+                        <option value="">ANY RAM</option>
+                        <option value="8GB">8GB</option>
+                        <option value="16GB">16GB</option>
+                        <option value="32GB">32GB</option>
+                    </select>
+
+                    <select id="gpu-filter">
+                        <option value="">ANY GPU</option>
+                        <option value="Integrated">Integrated</option>
+                        <option value="GTX 1050">GTX 1050</option>
+                        <option value="RTX 3060">RTX 3060</option>
+                    </select>
+
+                    <button id="apply-filters">Apply Filters</button>
+                </div>
+                <button id="mode-toggle">
+                    <img
+                        id="mode-icon"
+                        src="lightmode.png"
+                        alt="Toggle Mode"
+                        width="30"
+                        height="30"
+                    />
+                </button>
+            </nav>
+        </header>
+
+        <div class="card-container"></div>
+        <script type="module" src="JS/index.js"></script>
+    </body>
 </html>
